@@ -1,5 +1,7 @@
 package com.karenngomes.sistema;
 
+import com.karenngomes.sistema.PrimeiroElementoMatcher;
+
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
@@ -50,6 +52,25 @@ public class Tests {
 		
 		assertThat(lista, Matchers.contains(2,3,5,7));
 						
+	}
+	
+	@Test
+	public void trazlistaOrdenadaComTodosOsElementos_03() {
+		ArrayList<Integer> lista = new ArrayList<Integer>();
+		
+		lista.add(5);
+		lista.add(3);
+		lista.add(2);
+		lista.add(7);
+		
+		Collections.sort(lista);	
+		
+		assertThat(lista, comecaComDois());
+						
+	}
+	
+	private PrimeiroElementoMatcher comecaComDois() {
+		return new PrimeiroElementoMatcher();
 	}
 	
 }
