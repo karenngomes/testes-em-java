@@ -1,5 +1,6 @@
 package com.karenngomes.sistema;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -7,7 +8,7 @@ import static org.hamcrest.text.IsEqualIgnoringCase.equalToIgnoringCase;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
-import java.util.*;
+import java.util.Collections;
 
 public class Tests {
 	@Test
@@ -33,9 +34,22 @@ public class Tests {
 		assertEquals(new Integer(3), lista.get(1));
 		assertEquals(new Integer(5), lista.get(2));
 		assertEquals(new Integer(7), lista.get(3));
-				
+						
+	}
+	
+	@Test
+	public void trazlistaOrdenadaComTodosOsElementos_02() {
+		ArrayList<Integer> lista = new ArrayList<Integer>();
 		
+		lista.add(5);
+		lista.add(3);
+		lista.add(2);
+		lista.add(7);
 		
+		Collections.sort(lista);	
+		
+		assertThat(lista, Matchers.contains(2,3,5,7));
+						
 	}
 	
 }
