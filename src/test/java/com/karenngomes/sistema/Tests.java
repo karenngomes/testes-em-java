@@ -80,13 +80,25 @@ public class Tests {
 		boolean a = true;
 		boolean b = true;
 		
-		//all statements test the same
-		//assertThat(a,is(not(equalTo(b))));
+		// all statements test the same
+		// assertThat(a,is(not(equalTo(b))));
 		assertThat(a, is(b));
 		assertThat(a, is(equalTo(b)));
 		assertThat(a, equalTo(b));
 		
-		
 	}
+	
+	@Test
+	public void testesComString() {
+		assertThat("test", anyOf(is("testing"), containsString("test")));
+	}
+	
+	@Test
+	public void saberTipoVariavel() {
+		assertThat(Long.valueOf(1), instanceOf(Long.class));
+		// shortcut for instanceOf
+		assertThat(Long.valueOf(1), isA(Long.class));
+	}
+
 	
 }
