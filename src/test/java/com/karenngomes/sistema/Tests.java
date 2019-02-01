@@ -106,16 +106,24 @@ public class Tests {
 	@Test
     public void listShouldInitiallyBeEmpty() {
         List<Integer> list = Arrays.asList(5, 2, 4);
-
+        
         assertThat(list, hasSize(3));
-
+        
         // ensure the order is correct
         assertThat(list, contains(5, 2, 4));
-
+        
         assertThat(list, containsInAnyOrder(2, 4, 5));
-
+        
         assertThat(list, everyItem(greaterThan(1)));
-
+        
     }
+	
+	@Test
+	public void listChecker() {
+		List<String> fellowship = Arrays.asList("bla","buh", "race");
+		
+		assertThat(fellowship, hasItem("race"));
+		
+	}
 	
 }
