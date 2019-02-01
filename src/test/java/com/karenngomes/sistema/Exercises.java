@@ -16,4 +16,19 @@ public class Exercises {
 		assertThat(ints, arrayContaining(7, 5, 12, 16));
 	}
 	
+	@Test
+	public void emptyString() {
+		String str = "";
+		
+		assertThat(str, isEmptyString());
+	}
+	
+	@Test
+	public void emptyStringOrNull() {
+		String str = "";
+		
+		assertThat(str, isEmptyOrNullString());
+		
+	}
+	
 }
