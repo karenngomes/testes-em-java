@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.text.IsEqualIgnoringCase.equalToIgnoringCase;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hamcrest.Matchers.*;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -71,6 +73,20 @@ public class Tests {
 	
 	private PrimeiroElementoMatcher comecaComDois() {
 		return new PrimeiroElementoMatcher();
+	}
+	
+	@Test
+	public void variaveisComValoresIguais() {
+		boolean a = true;
+		boolean b = true;
+		
+		//all statements test the same
+		//assertThat(a,is(not(equalTo(b))));
+		assertThat(a, is(b));
+		assertThat(a, is(equalTo(b)));
+		assertThat(a, equalTo(b));
+		
+		
 	}
 	
 }
