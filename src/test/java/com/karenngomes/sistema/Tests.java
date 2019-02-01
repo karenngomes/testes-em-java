@@ -2,6 +2,9 @@ package com.karenngomes.sistema;
 
 import com.karenngomes.sistema.PrimeiroElementoMatcher;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
@@ -100,5 +103,19 @@ public class Tests {
 		assertThat(Long.valueOf(1), isA(Long.class));
 	}
 
+	@Test
+    public void listShouldInitiallyBeEmpty() {
+        List<Integer> list = Arrays.asList(5, 2, 4);
+
+        assertThat(list, hasSize(3));
+
+        // ensure the order is correct
+        assertThat(list, contains(5, 2, 4));
+
+        assertThat(list, containsInAnyOrder(2, 4, 5));
+
+        assertThat(list, everyItem(greaterThan(1)));
+
+    }
 	
 }
